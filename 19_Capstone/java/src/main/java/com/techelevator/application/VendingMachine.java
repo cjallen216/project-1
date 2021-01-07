@@ -1,12 +1,17 @@
 package com.techelevator.application;
 
+import com.techelevator.ui.UserInput;
+
 public class VendingMachine 
 {
     public void run()
     {
+    	System.out.println();
+    	
         while(true)
         {
             String choice = "display";
+            String option = UserInput.getHomeScreenOption();
 
             if(choice.equals("display"))
             {

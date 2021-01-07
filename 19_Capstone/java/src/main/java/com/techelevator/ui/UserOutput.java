@@ -1,5 +1,23 @@
 package com.techelevator.ui;
 
-public class UserOutput {
+import com.techelevator.models.Inventory;
+import com.techelevator.models.product.Product;
 
+public class UserOutput
+{
+	public static void displayInventory(Inventory inventory)
+	{
+		System.out.println();
+		System.out.println();
+		System.out.println("*****************");
+		System.out.println("    Products");
+		System.out.println("*****************");
+		System.out.println();
+		
+		for(Product product: inventory.getProducts())
+		{
+			System.out.println(product.toString());
+		}
+		System.out.println();
+	}
 }
