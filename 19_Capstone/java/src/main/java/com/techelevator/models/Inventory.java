@@ -29,4 +29,19 @@ public class Inventory
     	return products;
     }
     
+    public Product getProductById(String productId)
+    {
+        Product product = null;
+    	for (Product p : products)
+		{
+			if(p.getId().equals(productId))
+			{
+				product = p;
+				break;
+			}
+        }
+        
+        return product;
+    }
+    
 }

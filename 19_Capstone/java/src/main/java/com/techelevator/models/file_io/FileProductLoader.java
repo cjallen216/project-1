@@ -13,14 +13,14 @@ public class FileProductLoader
 	public List<Product> getProducts()
 	{
 		List<Product> products = new ArrayList<Product>();
-		File productsPath = new File("VendingMachine.csv");
+		File productsPath = new File("vendingmachine.csv");
 		
 		try (Scanner fileScanner = new Scanner(productsPath))
 		{
 			while (fileScanner.hasNextLine())
 			{
 				String line = fileScanner.nextLine();
-				String[] parts = line.split("|");
+				String[] parts = line.split("\\|");
 				
 				String id = parts[0];
 				String name = parts[1];
@@ -36,6 +36,7 @@ public class FileProductLoader
 		catch (Exception e)
 		{
 			// TODO: handle exception
+			System.out.println(e.getMessage());
 		}
 		return products;
 	}

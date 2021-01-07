@@ -20,4 +20,22 @@ public class UserOutput
 		}
 		System.out.println();
 	}
+	
+	public static void displayHomeScreen()
+	{
+		//clearScreen();
+		
+		System.out.println();
+		System.out.println("***************************************************");
+		System.out.println("                      Home");
+		System.out.println("***************************************************");
+		System.out.println();
+	}
+	
+	public static void displayMessage(String message)
+	{
+		System.out.println();
+		System.out.println(message);
+		System.out.println();
+	}
 }
