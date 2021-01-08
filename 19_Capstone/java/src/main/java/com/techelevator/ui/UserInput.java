@@ -1,5 +1,6 @@
 package com.techelevator.ui;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class UserInput {
@@ -70,6 +71,49 @@ public class UserInput {
 			return "";
 		}
 		
+    }
+    
+    public static int getFeedMoneyOption()
+    {
+    	System.out.println();
+		System.out.println("Please select the following dollar amount!");
+		System.out.println();
+		
+		System.out.println("(1) $1");
+		System.out.println("(2) $2");
+		System.out.println("(3) $5");
+		System.out.println("(4) $10");
+		System.out.println();
+		
+		String selectedMoneyOption = scanner.nextLine();
+		String moneyOption = selectedMoneyOption.trim();
+		
+		int dollarCount = 0;
+		
+		if(moneyOption.equals("1"))
+		{
+			dollarCount++;
+			return dollarCount;
+		}
+		else if(moneyOption.equals("2"))
+		{
+			dollarCount+= 2;
+			return dollarCount;
+		}
+		else if(moneyOption.equals("3"))
+		{
+			dollarCount+= 5;
+			return dollarCount;
+		}
+		else if(moneyOption.equals("4"))
+		{
+			dollarCount+= 10;
+			return dollarCount;
+		}
+		else
+		{
+			return dollarCount;
+		}
     }
 }
 

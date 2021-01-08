@@ -66,7 +66,7 @@ public class Product
 	@Override
 	public String  toString()
 	{
-		return id + " - " + name + " - $" + price + " - " + type;
+		return id + " - " + name + " - $" + price + " - " + type + " - amount remaining: " + quantity;
 	}
 	
 }
