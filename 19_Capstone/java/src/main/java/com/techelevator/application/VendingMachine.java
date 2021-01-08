@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import com.techelevator.models.Inventory;
 import com.techelevator.models.Transactions;
+import com.techelevator.models.file_io.Logger;
 import com.techelevator.models.product.Product;
 import com.techelevator.ui.UserInput;
 import com.techelevator.ui.UserOutput;
@@ -12,6 +13,9 @@ public class VendingMachine
 {
 	private Inventory inventory = new Inventory();
 	private Transactions transactions = new Transactions();
+	
+	private Logger errorLogger = new Logger("errors");
+    private Logger activityLogger = new Logger("logs");
 	
     public void run()
     {
@@ -66,6 +70,7 @@ public class VendingMachine
     		else if (option.equals("Exit Transaction"))
     		{
     			// return change to customer
+    			// transactions.getChange();
     			break;
     		}
      	//UserOutput.displayInventory(inventory);
@@ -86,11 +91,13 @@ public class VendingMachine
 		Product product = inventory.getProductById(idString);
 		System.out.println(product.toString());
 		System.out.println(product.getSound());
+		
+		activityLogger.logMessage("Product Puchased " + product);
+		
+		//insert soldOut() method
 		// try to purchase (do they have enough money?) - if no, ask for more 
-		
-		
-		//transactions.getChange();
-		
+		transactions.purchase(product);
+		product.purchase();
 		// get sound
     }
     

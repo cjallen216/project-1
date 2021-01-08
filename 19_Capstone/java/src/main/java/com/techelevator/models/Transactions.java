@@ -19,12 +19,16 @@ public class Transactions
 		return money;
 	}
 	
-	
-	
-//	public BigDecimal getPruchaseAmount()
-//	{
-//		BigDecimal itemPrice = FileProductLoader.price;
-//	    BigDecimal change = money.subtract(itemPrice);
-//		return change;
-//	}
+	public void purchase(Product product)
+	{
+		BigDecimal itemPrice = product.getPrice();
+		BigDecimal newCredit = money.subtract(itemPrice);
+		
+		if(newCredit.compareTo(BigDecimal.ZERO) < 0)
+		{
+			// not enough credit
+		}
+		
+	    money = newCredit;
+	}
 }

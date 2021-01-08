@@ -66,7 +66,14 @@ public abstract class Product
 	}
 	public void purchase()
 	{
-		quantity--;
+		if(quantity > 0)
+		{
+			quantity--;
+		}
+		else 
+		{
+			quantity = 0;
+		}
 	}
 	
 	public abstract String getSound();
@@ -75,6 +82,19 @@ public abstract class Product
 	public String  toString()
 	{
 		return id + " - " + name + " - $" + price + " - " + type + " - amount remaining: " + quantity;
+	}
+	
+	public String soldOut()
+	{
+		if(quantity == 0)
+		{
+			return "SOLD OUT";
+		}
+		else 
+		{
+			return"";
+		}
+		
 	}
 	
 }
