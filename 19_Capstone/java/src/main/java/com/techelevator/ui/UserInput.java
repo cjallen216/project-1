@@ -9,7 +9,6 @@ public class UserInput {
 	public static String getHomeScreenOption()
 
 	{
-		System.out.println();
 		System.out.println("Please select the following options!");
 		System.out.println();
 		
@@ -124,6 +123,17 @@ public class UserInput {
 		
     }
     
+    public static String selectProduct()
+    {
+    	System.out.println();
+    	System.out.println("Which item would you like to purchase? (ex. C2)");
+    	System.err.println();
+    	
+    	String selectedProductOption = scanner.nextLine();
+		String productOption = selectedProductOption.trim().toUpperCase();
+    	
+		return productOption;
+    }
 		
 		
 }

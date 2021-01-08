@@ -44,12 +44,4 @@ public class Inventory
         return product;
     }
     
-//    public static int getProductBySlotLocation()
-//    {
-//    	for(int i = 5; i <= 5; i--)
-//    	{
-//    		remove
-//    	}
-//    }
-    
 }

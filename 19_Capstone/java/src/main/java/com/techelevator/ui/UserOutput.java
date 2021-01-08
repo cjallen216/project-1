@@ -8,7 +8,6 @@ public class UserOutput
 	public static void displayInventory(Inventory inventory)
 	{
 		System.out.println();
-		System.out.println();
 		System.out.println("***************************************************");
 		System.out.println("                    Products");
 		System.out.println("***************************************************");

@@ -61,17 +61,7 @@ public class VendingMachine
     		}
     		else if (option.equals("Select Product"))
     		{
-    			UserOutput.displayInventory(inventory);
-    			
-    			// get product selection
-    			String idString = "A1";
-    			
-    			// find product by ID
-    			Product product = inventory.getProductById(idString);
-    			System.out.println(product.toString());
-    			System.out.println(product.getSound());
-    			// try to purchase (do they have enough money?) - if no, ask for more 
-    			// get sound
+    			selectProduct();
     		}
     		else if (option.equals("Exit Transaction"))
     		{
@@ -83,6 +73,25 @@ public class VendingMachine
         //System.out.println(UserInput.getPurchaseOptions());
         //System.out.println(UserInput.displayFeedMoneyOption());
         }
+    }
+    
+    public void selectProduct()
+    {
+    	UserOutput.displayInventory(inventory);
+		
+		// get product selection
+		String idString = UserInput.selectProduct();
+		
+		// find product by ID
+		Product product = inventory.getProductById(idString);
+		System.out.println(product.toString());
+		System.out.println(product.getSound());
+		// try to purchase (do they have enough money?) - if no, ask for more 
+		
+		
+		//transactions.getChange();
+		
+		// get sound
     }
     
 }
