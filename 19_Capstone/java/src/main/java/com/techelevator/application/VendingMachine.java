@@ -16,21 +16,22 @@ public class VendingMachine
     	
         while(true)
         {
-            String choice = "display";
+            //String choice = "purchase";
             String option = UserInput.getHomeScreenOption();
 
-            if(choice.equals("display"))
+            if(option.equals("display"))
             {
                 // display the vending machine slots
             	System.out.println(inventory.getProducts());
-            	break;
+            	//break;
             }
-            else if(choice.equals("purchase"))
+            else if(option.equals("purchase"))
             {
-                // make a purchase
-            	System.out.println("purchase");
+               UserOutput.displayInventory(inventory);
+            	// make a purchase
+            	System.out.println(UserInput.getPurchaseOptions());
             }
-            else if(choice.equals("exit"))
+            else if(option.equals("exit"))
             {
             	System.out.println("exit");
             	// good bye

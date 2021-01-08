@@ -8,6 +8,7 @@ public class Product
 	private String name;
 	private BigDecimal price;
 	private String type;
+	private int quantity = 5;
 	
 	
 	public Product(String id, String name, BigDecimal price, String type)
@@ -25,6 +26,16 @@ public class Product
 		this.name = name;
 		this.price = price;
 	}
+	public Product(String id, String name, BigDecimal price, String type, int quantity)
+	{
+
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.type = type;
+		this.quantity = quantity;
+	}
+	
 
 
 	public String getId() {
@@ -44,6 +55,11 @@ public class Product
 	public String getType()
 	{
 		return type;
+	}
+	
+	public int getQuantity()
+	{
+		return quantity;
 	}
 	
 	
