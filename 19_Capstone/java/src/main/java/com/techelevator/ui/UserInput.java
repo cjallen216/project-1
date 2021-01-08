@@ -51,6 +51,9 @@ public class UserInput {
 		System.out.println("(3) Finish Transaction");
 		System.out.println();
 		
+		//
+		System.out.println("Current Money added: $ " + displayFeedMoneyOption());
+		
 		String selectedPurchaseOption = scanner.nextLine();
 		String purchaseOption = selectedPurchaseOption.trim();
 		
@@ -73,7 +76,7 @@ public class UserInput {
 		
     }
     
-    public static int getFeedMoneyOption()
+    public static BigDecimal displayFeedMoneyOption()
     {
     	System.out.println();
 		System.out.println("Please select the following dollar amount!");
@@ -85,35 +88,47 @@ public class UserInput {
 		System.out.println("(4) $10");
 		System.out.println();
 		
+
 		String selectedMoneyOption = scanner.nextLine();
 		String moneyOption = selectedMoneyOption.trim();
+
 		
-		int dollarCount = 0;
+		BigDecimal dollarCount = new BigDecimal(0);
+		
 		
 		if(moneyOption.equals("1"))
 		{
-			dollarCount++;
+			
+			BigDecimal dollarOne = new BigDecimal(1);
+			dollarCount = dollarCount.add(dollarOne);
 			return dollarCount;
 		}
 		else if(moneyOption.equals("2"))
 		{
-			dollarCount+= 2;
+			BigDecimal dollarTwo = new BigDecimal(2);
+			dollarCount = dollarCount.add(dollarTwo);
 			return dollarCount;
 		}
 		else if(moneyOption.equals("3"))
 		{
-			dollarCount+= 5;
+			BigDecimal dollarFive = new BigDecimal(5);
+			dollarCount = dollarCount.add(dollarFive);
 			return dollarCount;
 		}
 		else if(moneyOption.equals("4"))
 		{
-			dollarCount+= 10;
+			BigDecimal dollarTen = new BigDecimal(10);
+			dollarCount = dollarCount.add(dollarTen);
 			return dollarCount;
 		}
 		else
 		{
 			return dollarCount;
 		}
+		
     }
+    
+		
+		
 }
 

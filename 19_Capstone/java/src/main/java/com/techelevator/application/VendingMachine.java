@@ -12,12 +12,10 @@ public class VendingMachine
     public void run()
     {
     	
-    	UserOutput.displayHomeScreen();
-    	
-        while(true)
+    	while(true)
         {
-            //String choice = "purchase";
-            String option = UserInput.getHomeScreenOption();
+    	UserOutput.displayHomeScreen();        
+        String option = UserInput.getHomeScreenOption();
 
             if(option.equals("display"))
             {
@@ -28,10 +26,14 @@ public class VendingMachine
             }
             else if(option.equals("purchase"))
             {
-               UserOutput.displayInventory(inventory);
+               while(true)
+               {
+            	UserOutput.displayInventory(inventory);
             	// make a purchase
-            	System.out.println(UserInput.getPurchaseOptions());
-            	System.out.println(UserInput.getFeedMoneyOption());
+               System.out.println(UserInput.getPurchaseOptions());
+               System.out.println(UserInput.displayFeedMoneyOption());
+               }
+           
             }
             else if(option.equals("exit"))
             {
