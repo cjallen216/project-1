@@ -51,8 +51,8 @@ public class UserInput {
 		System.out.println("(3) Finish Transaction");
 		System.out.println();
 		
-		//
-		System.out.println("Current Money added: $ " + displayFeedMoneyOption());
+		//System.out.println("Current Money added: $ " + displayFeedMoneyOption(dollar));
+		//System.out.println("Current Money added: $ " );
 		
 		String selectedPurchaseOption = scanner.nextLine();
 		String purchaseOption = selectedPurchaseOption.trim();
@@ -63,11 +63,11 @@ public class UserInput {
 		}
 		else if(purchaseOption.equals("2"))
 		{
-			return "select Product";
+			return "Select Product";
 		}
 		else if(purchaseOption.equals("3"))
 		{
-			return "exit transaction";
+			return "Exit Transaction";
 		}
 		else
 		{
@@ -77,7 +77,7 @@ public class UserInput {
     }
     
     public static BigDecimal displayFeedMoneyOption()
-    {
+    { 	
     	System.out.println();
 		System.out.println("Please select the following dollar amount!");
 		System.out.println();
@@ -88,17 +88,13 @@ public class UserInput {
 		System.out.println("(4) $10");
 		System.out.println();
 		
-
 		String selectedMoneyOption = scanner.nextLine();
 		String moneyOption = selectedMoneyOption.trim();
-
 		
 		BigDecimal dollarCount = new BigDecimal(0);
 		
-		
 		if(moneyOption.equals("1"))
 		{
-			
 			BigDecimal dollarOne = new BigDecimal(1);
 			dollarCount = dollarCount.add(dollarOne);
 			return dollarCount;

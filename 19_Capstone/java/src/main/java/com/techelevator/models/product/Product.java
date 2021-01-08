@@ -2,7 +2,7 @@ package com.techelevator.models.product;
 
 import java.math.BigDecimal;
 
-public class Product
+public abstract class Product
 {
 	private String id;
 	private String name;
@@ -61,7 +61,12 @@ public class Product
 	{
 		return quantity;
 	}
+	public void purchase()
+	{
+		quantity--;
+	}
 	
+	public abstract String getSound();
 	
 	@Override
 	public String  toString()

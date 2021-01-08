@@ -5,12 +5,12 @@ import java.math.BigDecimal;
 public class Drink extends Product{
 	public Drink(String id, String name, BigDecimal price)
 	{
-		super(id, name, price);
+		super(id, name, price, "Drink");
 		
 	}
 	
 	@Override
-	public String toString()
+	public String getSound()
 	{
 		return "Glug Glug, Yum!";
 	}
