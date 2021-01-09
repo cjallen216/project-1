@@ -2,6 +2,7 @@ package com.techelevator.application;
 
 import java.math.BigDecimal;
 
+import com.techelevator.models.Change;
 import com.techelevator.models.Inventory;
 import com.techelevator.models.Transactions;
 import com.techelevator.models.file_io.Logger;
@@ -55,10 +56,11 @@ public class VendingMachine
     	while(true)
         {
     		String option = UserInput.getPurchaseOptions();
+    		BigDecimal money;
     		
     		if (option.equals("Feed Money"))
     		{
-    			BigDecimal money = UserInput.displayFeedMoneyOption();
+    			money = UserInput.displayFeedMoneyOption();
     			//save money to wallet
     			transactions.add(money);
     			System.out.println(transactions.getMoney());
@@ -70,7 +72,11 @@ public class VendingMachine
     		else if (option.equals("Exit Transaction"))
     		{
     			// return change to customer
-    			// transactions.getChange();
+    			Change change = new Change();
+    			money = transactions.getMoney();
+    			System.out.println("Transaction complete, your change amount is: " + change.getChange(money));
+    			
+    			
     			break;
     		}
      	//UserOutput.displayInventory(inventory);
@@ -83,22 +89,32 @@ public class VendingMachine
     public void selectProduct()
     {
     	UserOutput.displayInventory(inventory);
-		
+		try
+		{
 		// get product selection
 		String idString = UserInput.selectProduct();
 		
 		// find product by ID
 		Product product = inventory.getProductById(idString);
 		System.out.println(product.toString());
-		System.out.println(product.getSound());
-		
-		activityLogger.logMessage("Product Puchased " + product);
 		
 		//insert soldOut() method
-		// try to purchase (do they have enough money?) - if no, ask for more 
-		transactions.purchase(product);
-		product.purchase();
-		// get sound
+		// try to purchase (do they have enough money?) - if no, ask for more
+		
+			transactions.purchase(product);
+			product.purchase();
+			product.soldOut();
+			// get sound
+			System.out.println(product.getSound());
+			activityLogger.logMessage("Product Purchased " + product);
+		}
+		catch (Exception e)
+		{
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+		
+		
     }
     
 }

@@ -50,7 +50,7 @@ public class UserInput {
 		System.out.println("(3) Finish Transaction");
 		System.out.println();
 		
-		//System.out.println("Current Money added: $ " + displayFeedMoneyOption(dollar));
+		System.out.println("Current Money added: $ ");
 		//System.out.println("Current Money added: $ " );
 		
 		String selectedPurchaseOption = scanner.nextLine();

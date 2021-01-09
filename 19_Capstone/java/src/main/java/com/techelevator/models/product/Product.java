@@ -70,9 +70,9 @@ public abstract class Product
 		{
 			quantity--;
 		}
-		else 
+		else if (quantity == 0)
 		{
-			quantity = 0;
+			soldOut();
 		}
 	}
 	
@@ -86,15 +86,12 @@ public abstract class Product
 	
 	public String soldOut()
 	{
-		if(quantity == 0)
+		if (quantity == 0)
 		{
 			return "SOLD OUT";
 		}
-		else 
-		{
-			return"";
-		}
 		
+		return "";		
 	}
 	
 }

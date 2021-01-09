@@ -11,7 +11,8 @@ public class Change
 	
 	public String getChange(BigDecimal balanceFromOther)
 	{
-		balance = balanceFromOther.doubleValue();
+		Transactions transactions = new Transactions();
+		balance = transactions.getMoney().doubleValue();
 		
 	while (balance > 0)
 	{

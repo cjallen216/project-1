@@ -2,8 +2,10 @@ package com.techelevator.models;
 
 import java.math.BigDecimal;
 
+import com.techelevator.application.VendingMachine;
 import com.techelevator.models.file_io.FileProductLoader;
 import com.techelevator.models.product.Product;
+import com.techelevator.ui.UserInput;
 
 public class Transactions
 {
@@ -27,8 +29,16 @@ public class Transactions
 		if(newCredit.compareTo(BigDecimal.ZERO) < 0)
 		{
 			// not enough credit
+			System.out.println();
+			needMoreMoney();
 		}
 		
 	    money = newCredit;
+	}
+	
+	public void needMoreMoney()
+	{
+		System.out.println("Not enough money, Please add more!");
+		UserInput.getPurchaseOptions();
 	}
 }
