@@ -66,13 +66,13 @@ public abstract class Product
 	}
 	public void purchase()
 	{
-		if(quantity > 0)
+		if(quantity != 0)
 		{
 			quantity--;
 		}
-		else if (quantity == 0)
+		else 
 		{
-			soldOut();
+			System.out.println("SOLD OUT!");
 		}
 	}
 	
@@ -84,14 +84,5 @@ public abstract class Product
 		return id + " - " + name + " - $" + price + " - " + type + " - amount remaining: " + quantity;
 	}
 	
-	public String soldOut()
-	{
-		if (quantity == 0)
-		{
-			return "SOLD OUT";
-		}
-		
-		return "";		
-	}
 	
 }

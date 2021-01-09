@@ -14,6 +14,10 @@ public class Change
 		Transactions transactions = new Transactions();
 		balance = transactions.getMoney().doubleValue();
 		
+		
+		//if(newCredit.compareTo(BigDecimal.ZERO) < 0)
+		//balance.compareTo((BigDecimal.ZERO)
+		
 	while (balance > 0)
 	{
 		if (balance >= .25)

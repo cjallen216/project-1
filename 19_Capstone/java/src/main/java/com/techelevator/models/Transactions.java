@@ -11,9 +11,9 @@ public class Transactions
 {
 	private BigDecimal money = BigDecimal.ZERO;
 	
-	public void add(BigDecimal amount)
+	public void add(BigDecimal dollarCount)
 	{
-		money = money.add(amount);
+		money = money.add(dollarCount);
 	}
 
 	public BigDecimal getMoney()
@@ -31,6 +31,10 @@ public class Transactions
 			// not enough credit
 			System.out.println();
 			needMoreMoney();
+		}
+		else
+		{
+			System.out.println(product.getSound());
 		}
 		
 	    money = newCredit;

@@ -3,8 +3,12 @@ package com.techelevator.ui;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
+import com.techelevator.models.Transactions;
+
 public class UserInput {
 	private static Scanner scanner = new Scanner(System.in);
+	
+	private static Transactions transactions = new Transactions();
 	
 	public static String getHomeScreenOption()
 
@@ -50,8 +54,11 @@ public class UserInput {
 		System.out.println("(3) Finish Transaction");
 		System.out.println();
 		
-		System.out.println("Current Money added: $ ");
-		//System.out.println("Current Money added: $ " );
+		BigDecimal money;
+		//money = UserInput.getDollarCount();
+		//save money to wallet
+		//transactions.add(money);
+		System.out.println("Current Money added: $ " + transactions.getMoney());
 		
 		String selectedPurchaseOption = scanner.nextLine();
 		String purchaseOption = selectedPurchaseOption.trim();
@@ -75,7 +82,7 @@ public class UserInput {
 		
     }
     
-    public static BigDecimal displayFeedMoneyOption()
+    public static String displayFeedMoneyOption()
     { 	
     	System.out.println();
 		System.out.println("Please select the following dollar amount!");
@@ -88,7 +95,74 @@ public class UserInput {
 		System.out.println();
 		
 		String selectedMoneyOption = scanner.nextLine();
-		String moneyOption = selectedMoneyOption.trim();
+		String option = selectedMoneyOption.trim();
+		
+		if(option.equals("1"))
+		{
+			return "addOneDollar";
+		}
+		else if(option.equals("2"))
+		{
+			return "addTwoDollars";
+		}
+		else if(option.equals("3"))
+		{
+			return "addFiveDollars";
+		}
+		else if(option.equals("4"))
+		{
+			return "addTenDollars";
+		}
+		else
+		{
+			return "Please enter a valid amount! (1 ,2, 3, 4) ";
+		}
+		
+		
+    }
+    public static BigDecimal getDollarCount() 
+    {
+    	String option = displayFeedMoneyOption();
+    	BigDecimal dollarCount = new BigDecimal(0);
+    	
+    	if(option.equals("addOneDollar"))
+    	{
+    		BigDecimal dollarOne = new BigDecimal(1);
+			dollarCount = dollarCount.add(dollarOne);
+			return dollarCount;
+    	}
+    	else if(option.equals("addTwoDollars"))
+    	{
+    		BigDecimal dollarTwo = new BigDecimal(2);
+			dollarCount = dollarCount.add(dollarTwo);
+			return dollarCount;
+    	}
+    	else if(option.equals("addFiveDollars"))
+		{
+			BigDecimal dollarFive = new BigDecimal(5);
+			dollarCount = dollarCount.add(dollarFive);
+			return dollarCount;
+		}
+    	else if(option.equals("addTenDollars"))
+		{
+			BigDecimal dollarTen = new BigDecimal(10);
+			dollarCount = dollarCount.add(dollarTen);
+			return dollarCount;
+		}
+    	return dollarCount;
+    }
+   
+    
+    
+    
+    
+    
+    public static BigDecimal getDollarCount2()
+    {
+    	
+    	String moneyOption;
+    	
+		 moneyOption = displayFeedMoneyOption();
 		
 		BigDecimal dollarCount = new BigDecimal(0);
 		

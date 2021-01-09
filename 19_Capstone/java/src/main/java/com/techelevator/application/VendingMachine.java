@@ -60,7 +60,8 @@ public class VendingMachine
     		
     		if (option.equals("Feed Money"))
     		{
-    			money = UserInput.displayFeedMoneyOption();
+    			//UserInput.displayFeedMoneyOption();
+    			money = UserInput.getDollarCount();
     			//save money to wallet
     			transactions.add(money);
     			System.out.println(transactions.getMoney());
@@ -102,10 +103,10 @@ public class VendingMachine
 		// try to purchase (do they have enough money?) - if no, ask for more
 		
 			transactions.purchase(product);
-			product.purchase();
-			product.soldOut();
+			product.purchase(); // quantity is reduced!
+			//product.soldOut();
 			// get sound
-			System.out.println(product.getSound());
+			//System.out.println(product.getSound());
 			activityLogger.logMessage("Product Purchased " + product);
 		}
 		catch (Exception e)
