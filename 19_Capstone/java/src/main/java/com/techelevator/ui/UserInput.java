@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 
 import java.util.Scanner;
 
+import com.techelevator.models.Inventory;
 import com.techelevator.models.Transactions;
 
 //THIS IS OUR PAIR PROGRAM CODE!!!
@@ -131,6 +132,7 @@ public class UserInput {
 		}
 		else
 		{
+			UserOutput.displayMessage("You selected an invalid dollar amount, please start again!");
 			return dollarCount;
 		}
 		
@@ -146,6 +148,19 @@ public class UserInput {
 		String productOption = selectedProductOption.trim().toUpperCase();
     	
 		return productOption;
+		
+//		Inventory inventory = new Inventory();
+//		
+//		if (selectedProductOption == inventory.getProductById(selectedProductOption).toString())
+//		{
+//			return productOption;
+//		}
+//		else
+//		{
+//			UserOutput.displayMessage("You selected an invalid product, please start again!");
+//			return null;
+//		}
+		
     }
 		
 		

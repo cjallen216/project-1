@@ -23,7 +23,6 @@ public class UserOutput
 	public static void displayHomeScreen()
 	{
 		//clearScreen();
-		
 		System.out.println();
 		System.out.println("***************************************************");
 		System.out.println("                      Home");

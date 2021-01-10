@@ -32,6 +32,7 @@ public class FileProductLoader
 				String type = parts[3];
 				
 				Product product = null;
+				
 				if(type.equals("Chip"))
 				{
 					product = new Chips(id, name, price);
