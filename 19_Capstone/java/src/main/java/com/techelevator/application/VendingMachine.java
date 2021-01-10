@@ -2,6 +2,7 @@ package com.techelevator.application;
 
 import java.math.BigDecimal;
 
+
 import com.techelevator.models.Change;
 import com.techelevator.models.Inventory;
 import com.techelevator.models.Transactions;
@@ -9,6 +10,8 @@ import com.techelevator.models.file_io.Logger;
 import com.techelevator.models.product.Product;
 import com.techelevator.ui.UserInput;
 import com.techelevator.ui.UserOutput;
+
+//THIS IS OUR PAIR PROGRAM CODE!!!!
 
 public class VendingMachine 
 {
@@ -24,7 +27,8 @@ public class VendingMachine
     	while(true)
         {
     	UserOutput.displayHomeScreen();        
-        String option = UserInput.getHomeScreenOption();
+
+    	String option = UserInput.getHomeScreenOption();
 
             if(option.equals("display"))
             {
@@ -61,10 +65,12 @@ public class VendingMachine
     		if (option.equals("Feed Money"))
     		{
     			//UserInput.displayFeedMoneyOption();
-    			money = UserInput.getDollarCount();
+    			money = UserInput.displayFeedMoneyOption();
     			//save money to wallet
     			transactions.add(money);
-    			System.out.println(transactions.getMoney());
+    			System.out.println("Current Money added: $ " + transactions.getMoney());
+    		
+    			activityLogger.logMessage("FEED MONEY " + money);
     		}
     		else if (option.equals("Select Product"))
     		{
@@ -75,15 +81,12 @@ public class VendingMachine
     			// return change to customer
     			Change change = new Change();
     			money = transactions.getMoney();
+    			System.out.println(money);
     			System.out.println("Transaction complete, your change amount is: " + change.getChange(money));
     			
-    			
+    		
     			break;
     		}
-     	//UserOutput.displayInventory(inventory);
-     	// make a purchase
-        //System.out.println(UserInput.getPurchaseOptions());
-        //System.out.println(UserInput.displayFeedMoneyOption());
         }
     }
     
@@ -101,7 +104,15 @@ public class VendingMachine
 		
 		//insert soldOut() method
 		// try to purchase (do they have enough money?) - if no, ask for more
-		
+		//if(product.purchase() == soldOut())
+		//{
+		//	print: select a different option!
+		//}
+//		else
+//		{
+//			transactions.purchase(product);
+//			System.out.println(product.getSound());
+//		}
 			transactions.purchase(product);
 			product.purchase(); // quantity is reduced!
 			//product.soldOut();
