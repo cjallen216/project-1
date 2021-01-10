@@ -70,7 +70,7 @@ public class VendingMachine
     			transactions.add(money);
     			System.out.println("Current Money added: $ " + transactions.getMoney());
     		
-    			activityLogger.logMessage("FEED MONEY " + money);
+    			activityLogger.logMessage("FEED MONEY " + money + transactions.getMoney());
     		}
     		else if (option.equals("Select Product"))
     		{
