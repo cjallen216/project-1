@@ -109,7 +109,7 @@ public class VendingMachine
 				else if(transactions.getMoney().compareTo(product.getPrice()) < 0) //< inventory.getProductById(idString))
 				{
 					 //money is being subtracted
-					System.out.println("Not enough money, Please add more!ggg");
+					System.out.println("Not enough money, Please add more!");
 					
 				}
 		 
