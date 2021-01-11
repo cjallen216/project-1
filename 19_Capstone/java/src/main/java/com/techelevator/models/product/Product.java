@@ -19,13 +19,7 @@ public abstract class Product
 		this.price = price;
 		this.type = type;
 	}
-	public Product(String id, String name, BigDecimal price)
-	{
 
-		this.id = id;
-		this.name = name;
-		this.price = price;
-	}
 	public Product(String id, String name, BigDecimal price, String type, int quantity)
 	{
 
