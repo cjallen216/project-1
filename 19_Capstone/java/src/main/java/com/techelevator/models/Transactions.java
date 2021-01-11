@@ -29,14 +29,10 @@ public class Transactions
 		if(newCredit.compareTo(BigDecimal.ZERO) < 0)
 		{
 			// not enough credit
-			System.out.println();
-			needMoreMoney();
+			System.out.println("Not enough money, Please add more!");
+			//needMoreMoney();
 		}
-		else
-		{
-			System.out.println(product.getSound());
-		}
-		
+	
 	    money = newCredit;
 	}
 	

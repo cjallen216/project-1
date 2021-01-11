@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import com.techelevator.models.Change;
 import com.techelevator.models.Inventory;
 import com.techelevator.models.Transactions;
+import com.techelevator.models.exceptions.InsuficientFundsException;
 import com.techelevator.models.file_io.Logger;
 import com.techelevator.models.product.Product;
 import com.techelevator.ui.UserInput;
@@ -23,7 +24,7 @@ public class VendingMachine
     
     private BigDecimal money;
 	
-    public void run()
+    public void run() 
     {
     	
     	while(true)
@@ -55,15 +56,13 @@ public class VendingMachine
     
     public void displayScreen()
     {
-    	// display the vending machine slots
-    	//System.out.println(inventory.getProducts());
     	System.out.println();
     	System.out.println("Here are the products we have available");
     	UserOutput.displayInventory(inventory);
     	//break;
     }
     
-    public void purchaseScreen()
+    public void purchaseScreen() 
     {
     	while(true)
         {
@@ -89,30 +88,55 @@ public class VendingMachine
         }
     }
     
-    public void selectProduct()
-    {
-    	UserOutput.displayInventory(inventory);
+	public void selectProduct() 
+	{
+	   UserOutput.displayInventory(inventory);
 		try
 		{
-		// get product selection
-		String idString = UserInput.selectProduct();
+			// get product selection
+			String idString = UserInput.selectProduct();
+			
+			// find product by ID
+			Product product = inventory.getProductById(idString);
+			System.out.println(product.toString());
+			
+			//insert soldOut() method
+			// try to purchase (do they have enough money?) - if no, ask for more
+				if(product.getQuantity() == 0)
+				{
+					System.out.println("THIS PRODUCT IS SOLD OUT!");
+				}
+				else if(transactions.getMoney().compareTo(product.getPrice()) < 0) //< inventory.getProductById(idString))
+				{
+					 //money is being subtracted
+					System.out.println("Not enough money, Please add more!ggg");
+					
+				}
+		 
+				else
+				{
+					//throw new Exception();
+					product.purchase(); // quantity is reduced!
+					transactions.purchase(product);
+					System.out.println(product.getSound());
+					
+					activityLogger.logMessage("Product Purchased " + product + ", $" + transactions.getMoney());
+				}
+
+		}
+		catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+			errorLogger.logMessage(e.getMessage());
+		}	
+					
+					
+	}		
 		
-		// find product by ID
-		Product product = inventory.getProductById(idString);
-		System.out.println(product.toString());
-		
-		//insert soldOut() method
-		// try to purchase (do they have enough money?) - if no, ask for more
-			if(product.getQuantity() == 0)
-			{
-				System.out.println("THIS PRODUCT IS SOLD OUT!");
-			}
-			else
-			{
-				transactions.purchase(product); //money is being subtracted
-				product.purchase(); // quantity is reduced!
-				//System.out.println(product.getSound());
-			}
+//				transactions.purchase(product); //money is being subtracted
+//				product.purchase(); // quantity is reduced!
+//				//System.out.println(product.getSound());
+	
 			
 //			if(transactions.getMoney().compareTo(BigDecimal.ZERO) < 0)
 //			{
@@ -128,15 +152,8 @@ public class VendingMachine
 			//product.soldOut();
 			// get sound
 			//System.out.println(product.getSound());
-			activityLogger.logMessage("Product Purchased " + product + ", $" + transactions.getMoney());
-		}
-		catch (Exception e)
-		{
-			System.out.println(e.getMessage());
-		}
 		
-		
-    }
+
     
     public void feedMoney()
     {

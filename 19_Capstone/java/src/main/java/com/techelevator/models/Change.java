@@ -11,32 +11,31 @@ public class Change
 	
 	public String getChange(BigDecimal balanceFromOther)
 	{
-		Transactions transactions = new Transactions();
-		balance = transactions.getMoney().doubleValue();
-		
-		
-		//if(newCredit.compareTo(BigDecimal.ZERO) < 0)
-		//balance.compareTo((BigDecimal.ZERO)
-		
-	while (balance > 0)
-	{
-		if (balance >= .25)
+		balance = balanceFromOther.doubleValue();
+
+		while (balance > 0)
 		{
-			quarters++;
-			balance -= .25;
+			if (balance >= .25)
+			{
+				quarters++;
+				balance -= .25;
+			}
+			else if (balance >= .10)
+			{
+				dime++;
+				balance -= .10;
+			}
+			else if (balance >= .05)
+			{
+				nickels++;
+				balance -= .05;
+			}
+			else
+			{
+				balance = 0;
+			}
 		}
-		else if (balance >= .10)
-		{
-			dime++;
-			balance -= .10;
+		return ("Your change is " + quarters + " quarters, " + dime + " dimes, " + nickels + " nickels.");
 		}
-		else if (balance >= .05)
-		{
-			nickels++;
-			balance -= .05;
-		}	
-	}
-	return ("Your change is " + quarters + " quarters, " + dime + " dimes, " + nickels + " nickels.");
-	}
 	
 }

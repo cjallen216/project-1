@@ -66,14 +66,7 @@ public abstract class Product
 	}
 	public void purchase()
 	{
-		if(quantity != 0)
-		{
-			quantity--;
-		}
-		else 
-		{
-			System.out.println("SOLD OUT!");
-		}
+		quantity--;
 	}
 	
 	public abstract String getSound();
