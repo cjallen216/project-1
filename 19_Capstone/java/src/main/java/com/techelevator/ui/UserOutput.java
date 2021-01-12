@@ -36,4 +36,5 @@ public class UserOutput
 		System.out.println(message);
 		System.out.println();
 	}
+	
 }

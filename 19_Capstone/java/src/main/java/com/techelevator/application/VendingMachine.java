@@ -99,26 +99,23 @@ public class VendingMachine
 			// find product by ID
 			Product product = inventory.getProductById(idString);
 			System.out.println(product.toString());
-			
-			//insert soldOut() method
+
 			// try to purchase (do they have enough money?) - if no, ask for more
 				if(product.getQuantity() == 0)
 				{
 					System.out.println("THIS PRODUCT IS SOLD OUT!");
 				}
-				else if(transactions.getMoney().compareTo(product.getPrice()) < 0) //< inventory.getProductById(idString))
+				
+				else if(transactions.getMoney().compareTo(product.getPrice()) < 0) 
 				{
-					 //money is being subtracted
-					System.out.println("Not enough money, Please add more!");
-					
+					System.out.println("Not enough money, Please add more!ggg");	
 				}
 		 
 				else
 				{
-					//throw new Exception();
 					product.purchase(); // quantity is reduced!
-					transactions.purchase(product);
-					System.out.println(product.getSound());
+					transactions.purchase(product); //money is subtracted
+					System.out.println(product.getSound()); // sound is produced
 					
 					activityLogger.logMessage("Product Purchased " + product + ", $" + transactions.getMoney());
 				}
@@ -130,31 +127,8 @@ public class VendingMachine
 			errorLogger.logMessage(e.getMessage());
 		}	
 					
-					
-	}		
-		
-//				transactions.purchase(product); //money is being subtracted
-//				product.purchase(); // quantity is reduced!
-//				//System.out.println(product.getSound());
-	
-			
-//			if(transactions.getMoney().compareTo(BigDecimal.ZERO) < 0)
-//			{
-//				System.out.println("PLEASE ADD MORE MONEY");
-//			}
-//			else
-//			{
-//				transactions.purchase(product); //money is being subtracted
-//				product.purchase(); // quantity is reduced!
-//				//System.out.println(product.getSound());
-//			}
-//			
-			//product.soldOut();
-			// get sound
-			//System.out.println(product.getSound());
-		
-
-    
+	}
+  
     public void feedMoney()
     {
    		money = UserInput.displayFeedMoneyOption();
